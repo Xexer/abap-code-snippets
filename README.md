@@ -11,3 +11,9 @@ Generation of random numbers for a defined range.
 Simple measurement of the running time and output of the difference.
 
 *Code:* [Link](/sources/zcl_bs_demo_runtime.abap) 
+
+
+## ZCL_BS_DEMO_ADJUST_DATA
+Basic OData operations for Custom Entities and OData Implementations for ABAP Cloud. The class is based on the standard object /IWBEP/CL_MGW_DATA_UTIL.
+
+*Code:* [Link](/sources/zcl_bs_demo_adjust_data.abap) - *Blog:* [DE](https://software-heroes.com/blog/abap-rap-custom-entity-wertehilfe-deep-dive), [EN](https://software-heroes.com/en/blog/abap-rap-custom-entity-value-help-deep-dive) 
