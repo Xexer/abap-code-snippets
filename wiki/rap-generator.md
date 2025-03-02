@@ -1,0 +1,46 @@
+# RAP - Generator
+
+Here you can find code snippets for the use of the RAP Generators.
+
+## Mandatory fields
+
+Fields you always need in the ROOT entity for the RAP Generator (UI or Business Configuration).
+
+```ABAP
+local_created_by      : abp_creation_user;
+local_last_changed_by : abp_locinst_lastchange_user;
+local_last_changed    : abp_locinst_lastchange_tstmpl;
+last_changed          : abp_lastchange_tstmpl;
+```
+
+## Extend with new entity
+
+After generation, you want to extend the data model with another entity. Extend the behavior definition.
+
+```ABAP
+define behavior for ZBC_I_Child alias Child
+persistent table zbc_child
+draft table zbc_child_d
+lock dependent by _Parent
+authorization dependent by _Parent
+{
+  field ( mandatory : create, readonly : update ) LocalKey;
+  field ( readonly ) SecondaryKey;
+
+  update;
+  delete;
+
+  association _Parent { with draft; }
+
+  mapping for zbc_child
+    {
+      LocalKey = local_key;
+    }
+}
+```
+
+Add the assoziation for creation to the ROOT definition.
+
+```ABAP
+association _Child { create; with draft; }
+```
