@@ -15,7 +15,11 @@ last_changed          : abp_lastchange_tstmpl;
 
 ## Extend with new entity
 
-After generation, you want to extend the data model with another entity. Extend the behavior definition.
+After generation, you want to extend the data model with another entity. 
+
+### Root
+
+Extend the behavior definition.
 
 ```ABAP
 define behavior for ZBC_I_Child alias Child
@@ -43,4 +47,25 @@ Add the assoziation for creation to the ROOT definition.
 
 ```ABAP
 association _Child { create; with draft; }
+```
+
+### Consumption
+
+Extend the behavior definition.
+
+```ABAP
+define behavior for ZBC_C_Child alias Child
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Parent { with draft; }
+}
+```
+
+Add the assoziation for creation to the ROOT entity.
+
+```ABAP
+use association _Child { create; with draft; }
 ```
