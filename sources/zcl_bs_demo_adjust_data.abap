@@ -86,7 +86,7 @@ CLASS zcl_bs_demo_adjust_data IMPLEMENTATION.
       ld_from = 1.
     ENDIF.
 
-    IF id_page_size IS NOT INITIAL.
+    IF id_page_size IS NOT INITIAL AND id_page_size <> -1.
       ld_to = ld_from + id_page_size - 1.
     ELSE.
       ld_to = lines( ct_data ).
