@@ -13,6 +13,19 @@ local_last_changed    : abp_locinst_lastchange_tstmpl;
 last_changed          : abp_lastchange_tstmpl;
 ```
 
+If you add the fields later in your entity you have to normalize them.
+
+```ABAP
+@Semantics.user.createdBy: true
+local_created_by      as LocalCreatedBy,
+@Semantics.user.localInstanceLastChangedBy: true
+local_last_changed_by as LocalLastChangedBy,
+@Semantics.systemDateTime.localInstanceLastChangedAt: true
+local_last_changed    as LocalLastChanged,
+@Semantics.systemDateTime.lastChangedAt: true
+last_changed          as LastChanged,
+```
+
 ## Extend with new entity
 
 After generation, you want to extend the data model with another entity. 
