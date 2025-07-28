@@ -23,7 +23,7 @@ local_last_changed_by as LocalLastChangedBy,
 @Semantics.systemDateTime.localInstanceLastChangedAt: true
 local_last_changed    as LocalLastChanged,
 @Semantics.systemDateTime.lastChangedAt: true
-last_changed          as LastChanged,
+last_changed          as LastChanged
 ```
 
 ## Extend with new entity
