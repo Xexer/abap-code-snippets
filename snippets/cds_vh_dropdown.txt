@@ -1,0 +1,1 @@
+@ObjectModel.resultSet.sizeCategory: #XS
