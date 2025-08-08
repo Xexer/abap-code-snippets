@@ -8,7 +8,7 @@
 {
       @ObjectModel.text.element: [ 'Description' ]
       @UI.textArrangement: #TEXT_ONLY
-  key Values.value_low as FieldName,
+  key Values.value_low as [[FIELD]],
 
       @UI.hidden: true
       Texts.text       as Description
