@@ -1,4 +1,5 @@
 local_created_by      : abp_creation_user;
+local_created_at      : abp_creation_tstmpl;
 local_last_changed_by : abp_locinst_lastchange_user;
-local_last_changed    : abp_locinst_lastchange_tstmpl;
-last_changed          : abp_lastchange_tstmpl;
+local_last_changed_at : abp_locinst_lastchange_tstmpl;
+last_changed_at       : abp_lastchange_tstmpl;;

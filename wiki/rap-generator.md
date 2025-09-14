@@ -8,9 +8,10 @@ Fields you always need in the ROOT entity for the RAP Generator (UI or Business 
 
 ```ABAP
 local_created_by      : abp_creation_user;
+local_created_at      : abp_creation_tstmpl;
 local_last_changed_by : abp_locinst_lastchange_user;
-local_last_changed    : abp_locinst_lastchange_tstmpl;
-last_changed          : abp_lastchange_tstmpl;
+local_last_changed_at : abp_locinst_lastchange_tstmpl;
+last_changed_at       : abp_lastchange_tstmpl;
 ```
 
 If you add the fields later in your entity you have to normalize them.
@@ -18,12 +19,29 @@ If you add the fields later in your entity you have to normalize them.
 ```ABAP
 @Semantics.user.createdBy: true
 local_created_by      as LocalCreatedBy,
+@Semantics.systemDateTime.createdAt: true
+local_created_at      as LocalCreatedAt,
 @Semantics.user.localInstanceLastChangedBy: true
 local_last_changed_by as LocalLastChangedBy,
 @Semantics.systemDateTime.localInstanceLastChangedAt: true
-local_last_changed    as LocalLastChanged,
+local_last_changed_at as LocalLastChangedAt,
 @Semantics.systemDateTime.lastChangedAt: true
-last_changed          as LastChanged
+last_changed_at       as LastChangedAt
+```
+
+When you want to use the fields in a CDS Aspect.
+
+```ABAP
+@Semantics.user.createdBy: true
+LocalCreatedBy     : abp_creation_user;
+@Semantics.systemDateTime.createdAt: true
+LocalCreatedAt     : abp_creation_tstmpl;
+@Semantics.user.localInstanceLastChangedBy: true
+LocalLastChangedBy : abp_locinst_lastchange_user;
+@Semantics.systemDateTime.localInstanceLastChangedAt: true
+LocalLastChangedAt : abp_locinst_lastchange_tstmpl;
+@Semantics.systemDateTime.lastChangedAt: true
+LastChangedAt      : abp_lastchange_tstmpl;
 ```
 
 ## Extend with new entity
